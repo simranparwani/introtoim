@@ -1,0 +1,23 @@
+PImage me;
+//define size of the rectangle
+int pixelSize = 20;
+
+void setup() {
+  size(600,715);
+  me = loadImage("me.jpg");
+  //controls speed of drawing pixels
+  frameRate(300);
+}
+
+void draw() {
+    //create random x,y point within the sketch
+    float x = random(width);
+    float y = random(height);
+    //learned about .get() from from Daniel Shiffman's Processing tutorial on pixels https://www.youtube.com/watch?v=NbX3RnlAyGU
+    //get color from image at the x,y point
+    color c = me.get(int(x), int(y));
+    fill(c);
+    noStroke();
+    //draws rectangle at the x,y point with the color from the image
+    rect(x, y, pixelSize, pixelSize);
+}
